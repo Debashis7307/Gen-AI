@@ -1,0 +1,15 @@
+from transformers import pipeline
+# Hugging Face -> Its bessically the github for machine learning models, datasets, and tools. It provides a platform for sharing and using pre-trained models and datasets in the field of natural language processing (NLP) and other machine learning tasks.
+pipe = pipeline("image-text-to-text", model="google/gemma-3-4b-it")
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/p-blog/candy.JPG"},
+            {"type": "text", "text": "What animal is on the candy?"}
+        ]
+    },
+]
+
+pipe(text=messages)
